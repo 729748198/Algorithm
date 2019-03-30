@@ -6,7 +6,7 @@ public class 插入排序 {
 		// TODO Auto-generated method stub
 		int []array= {1,4,5,9,6,3,2,5,8,7,4,5};
 		print(array);
-		
+		 
 		sort(array);
 		print(array);
 	}
