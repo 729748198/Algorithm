@@ -8,7 +8,7 @@ public class 冒泡排序 {
 		int []array= {9,8,7,6,5,4,3,2,1};
 		print(array);
 		
-		sort(array);
+		sort1(array);
 		print(array);
 	}
 	/**
@@ -33,6 +33,7 @@ public class 冒泡排序 {
 			boolean flag=true;
 			for(int j=0;j<arr.length-i-1;j++) {
 				if(arr[j]>arr[j+1]) {
+					flag=false;
 					swap(arr, j+1, j);
 				}
 			}
