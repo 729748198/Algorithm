@@ -1,7 +1,12 @@
 package 排序;
-
+/**
+ * 冒泡排序，最好情况O(n),最差和平均O(n2).是稳定算法
+ * @author Administrator
+ *
+ */
 public class 冒泡排序 {
 
+	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 

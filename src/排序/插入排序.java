@@ -1,5 +1,10 @@
 package 排序;
 
+/**
+ * 插入排序,最好复杂度,O(n),最差和平均都是O(n2)，稳定算法
+ * @author Administrator
+ *
+ */
 public class 插入排序 {
 
 	public static void main(String[] args) {

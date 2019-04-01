@@ -2,14 +2,47 @@ package 排序;
 
 import java.util.Arrays;
 
+/**
+ * 快速排序最差时间复杂度O(n2),最好和平均复杂度O(n*lgn)，不稳定排序
+ * @author Administrator
+ *
+ */
 public class 快速排序 {
 
 	 public static void main(String[] args) {
-	        int[] arr = {9, 8, 7, 6, 5, 4, 3, 2, 1, 0};
-	        quickSort(arr, 0, arr.length - 1);
+	        //int[] arr = {5,4,8,3,9,6,2,7,1,4};
+	       // int []arr= {9,8,7,6,5,4,3,2,1};
+		 	int[] arr= {1,2,3,4,5,6,7,8,9};
+	        quickSort1(arr, 0, arr.length - 1);
 	        System.out.println("排序结果：" + Arrays.toString(arr));
 	    }
 
+	 /**
+	  * 选取第一个数为枢纽，就得从右往左遍历。因为要交换的值得比第一个值小。选最后一个同理得从左往右遍历。
+	  * @param arr
+	  * @param left
+	  * @param right
+	  */
+	 public static void quickSort1(int []arr,int left,int right) {
+		 if(left<right) {
+			 int temp=arr[left];
+			 int i=left;
+			 int j=right+1;
+			 while (i<j) {
+				 while (j>i&&arr[--j]>=temp) {}
+				 while (i<right&&arr[++i]<temp) {}
+				 if(i<j) {
+					 swap(arr, i, j);
+				 }	
+			}
+			 if(left<j) {
+				 swap(arr, j, left);
+			 }
+		quickSort1(arr, left, j-1);
+		quickSort1(arr, j+1, right);
+		
+		}
+	}
 	    /**
 	     * @param arr
 	     * @param left  左指针

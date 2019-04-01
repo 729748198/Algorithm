@@ -1,5 +1,10 @@
 package 排序;
 
+/**
+ * 选择排序，最佳/最差/平均时间复杂度O(n2),不稳定排序
+ * @author Administrator
+ *
+ */
 public class 选择排序 {
 
 	public static void main(String[] args) {
