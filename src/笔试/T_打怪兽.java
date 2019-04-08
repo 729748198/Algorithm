@@ -7,25 +7,25 @@ public class T_打怪兽 {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		Scanner in=new Scanner(System.in);
-		int n=in.nextInt();//怪兽数
-		long []wuli=new long[n];//怪兽的武力值
-		int []jingbi=new int[n];//购买怪兽需要的金币
+		int n = in.nextInt();//怪兽数
+		int [] wuli = new int[n];//怪兽的武力值
+		int [] jingbi = new int[n];//购买怪兽需要的金币
 		
 		/**
 		 * 处理输入
 		 */
 		for(int i=0;i<n;i++) {
-			long temp=in.nextInt();
+			int temp=in.nextInt(); //武力
 			wuli[i]=temp;
 		}
 		
 		for (int i = 0; i < n; i++) {
-			int temp=in.nextInt();
+			int temp=in.nextInt();//金币
 			jingbi[i]=temp;
 		}
 		
 		/**
-		 * 建立一个二维数组，[i][0]是购买此怪兽，[i][i]是不购买此怪兽
+		 * 建立一个二维数组，[i][0]是购买此怪兽，[i][i]是不购买此怪兽,并且建立在上个怪兽的情况
 		 * 初始第一个怪兽肯定要买,如果不买的策略失败就置为Max，表示这条路失败
 		 */
 		long [][]dowuli=new long[n][n];
@@ -52,6 +52,7 @@ public class T_打怪兽 {
 				}
 			}
 		}
+		
 		long min=Long.MAX_VALUE;
 		int result=0;
 		for(int i=0;i<n;i++) {
