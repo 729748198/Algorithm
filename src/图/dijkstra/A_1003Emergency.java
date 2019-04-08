@@ -3,7 +3,7 @@ package 图.dijkstra;
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class A_Emergency {
+public class A_1003Emergency {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
@@ -21,15 +21,15 @@ public class A_Emergency {
 		int end=in.nextInt();
 		
 		//边权 此处是救援队数量
-		int []weight=new int[n+1];
+		int []weight=new int[n];
 		
-		for(int i=1;i<=n;i++) {
+		for(int i=0;i<n;i++) {
 			weight[i]=in.nextInt();
 		}
 		
 		//图 初始化连接
-		int [][]map=new int[n+1][n+1];
-		for(int i=1;i<=n;i++) {
+		int [][]map=new int[n][n];
+		for(int i=0;i<n;i++) {
 		Arrays.fill(map[i],Integer.MAX_VALUE );
 		}
 		for(int i=0;i<m;i++) {
@@ -45,12 +45,14 @@ public class A_Emergency {
 		 * dist表示从begin处到其他节点的最短路
 		 */
 		
-		boolean []falg=new boolean[n+1];
-		int []dist=new int[n+1];
-		int []num=new int[n+1];
+		boolean []falg=new boolean[n];
+		int []dist=new int[n];
+		int []num=new int[n];
+		int []w=new int[n];
 		Arrays.fill(dist, Integer.MAX_VALUE);
 		dist[begin]=0;
 		num[begin]=1;
+		w[begin]=weight[begin];
 		for(int i=0;i<n;i++) {
 			/**
 			 * 从dist中找到一个最短路
@@ -58,7 +60,7 @@ public class A_Emergency {
 			 * 
 			 */
 			int min=Integer.MAX_VALUE,k=0;
-			for(int j=1;j<=n;j++) {
+			for(int j=0;j<n;j++) {
 				if(falg[j]==false&&min>dist[j]) {
 					min=dist[j];
 					k=j;
@@ -66,13 +68,21 @@ public class A_Emergency {
 			}
 			falg[k]=true;
 			
-			for(int j=1;j<=n;j++) {
+			for(int j=0;j<n;j++) {
 				int temp=map[k][j]==Integer.MAX_VALUE?Integer.MAX_VALUE:min+map[k][j];
 				if(falg[j]==false&&temp<dist[j]) {
 					dist[j]=temp;
+					num[j]=num[k];
+					w[j]=w[k]+weight[j];
+				}else if(temp==dist[j]) {
+					num[j]=num[j]+num[k];
+					if(w[j]<w[k]+weight[j]) {
+						w[j]=w[k]+weight[j];
+					}
 				}
 			}
 		}
+		System.out.println(num[end]+" "+w[end]);
 	}
 
 }
