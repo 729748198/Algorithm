@@ -43,6 +43,8 @@ public class A_1003Emergency {
 		 * 开始从begin处寻找最短路 
 		 * flag表示已经是最短路
 		 * dist表示从begin处到其他节点的最短路
+		 * num表示当前节点有几条最短路
+		 * w表示当前节点在最短路的情况m
 		 */
 		
 		boolean []falg=new boolean[n];
