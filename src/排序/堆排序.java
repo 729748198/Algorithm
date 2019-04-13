@@ -2,6 +2,11 @@ package 排序;
 
 import java.util.Arrays;
 
+/**
+ * 堆排序是不稳定算法，最差最好和平均算法复杂度都是O(nlgn)
+ * @author Administrator
+ *
+ */
 public class 堆排序 {
 
 	public static void main(String[] args) {

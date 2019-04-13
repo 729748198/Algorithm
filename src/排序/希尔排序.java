@@ -1,5 +1,9 @@
 package 排序;
-
+/**
+ * 希尔排序，不稳定排序，最好O(n),最差O(n2),平均O（n^1.3)
+ * @author Administrator
+ *
+ */
 public class 希尔排序 {
 
 	public static void main(String[] args) {
